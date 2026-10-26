@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LUDU Guest House — a relaxed beach-inspired stay in Goa. Explore rooms and enquire about your stay.">
+<title>LUDU Guest House | Stay, Relax, Explore</title>
+<style>
+:root{--navy:#10343a;--teal:#1b7775;--sand:#f7f0e5;--gold:#b87925;--ink:#203238;--muted:#647277;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);box-shadow:0 2px 16px #1233}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;color:#79501c;font-family:Georgia,serif;font-size:29px;font-weight:bold;letter-spacing:1px;line-height:1}.brand small{display:block;font:10px Arial,sans-serif;letter-spacing:3px;color:#53676a;text-align:center;margin-top:4px}.palm{font-size:32px}.links{display:flex;gap:25px;font-size:13px;font-weight:700}.links a:hover{color:var(--gold)}.btn{display:inline-block;background:var(--gold);color:#fff;padding:12px 20px;border-radius:5px;font-weight:bold;font-size:13px;border:0;cursor:pointer}.btn:hover{background:#915a16}.btn-outline{background:transparent;border:1px solid var(--gold);color:#8b5b1d}
+.hero{min-height:530px;display:flex;align-items:center;position:relative;color:white;background:linear-gradient(90deg,rgba(8,37,43,.68),rgba(8,37,43,.13)),linear-gradient(0deg,rgba(0,0,0,.2),transparent),url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero-content{max-width:620px;padding:70px 0}.eyebrow{text-transform:uppercase;letter-spacing:4px;font-size:11px;font-weight:bold;color:#e9c58d}.hero h1{font:clamp(45px,7vw,78px)/.98 Georgia,serif;margin:15px 0}.script{font:italic 29px Georgia,serif;color:#f5d6a3}.hero p{max-width:470px;color:#f5f5f1;font-size:16px;margin:20px 0 26px}
+.booking{position:relative;margin-top:-34px;z-index:2;background:#fff;border-radius:10px;box-shadow:0 10px 35px #183b3b20;padding:18px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end}.field label{display:block;font-size:11px;font-weight:bold;color:#5e6b6c;margin-bottom:5px}.field input,.field select{width:100%;border:1px solid #dbe2df;border-radius:5px;padding:12px;font:14px Arial;color:var(--ink);background:#fff}
+.features{display:grid;grid-template-columns:repeat(5,1fr);padding:34px 0 28px;text-align:center;gap:10px}.feature{border-right:1px solid #e8e5df;padding:4px 10px}.feature:last-child{border:0}.feature span{font-size:26px;color:var(--gold)}.feature strong{display:block;font-size:13px}.feature small{color:var(--muted);font-size:11px}
+.section{padding:58px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:25px}.kicker{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:bold;text-transform:uppercase}.section h2{font:clamp(30px,4vw,43px)/1.1 Georgia,serif;color:var(--navy);margin:8px 0}.section-head p{max-width:420px;color:var(--muted);font-size:14px}
+.rooms{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.room{border:1px solid #e8e9e5;border-radius:8px;overflow:hidden;box-shadow:0 5px 18px #102d2d0c}.room img{width:100%;height:180px;object-fit:cover;display:block}.room-body{padding:15px}.room h3{font:20px Georgia,serif;margin:0 0 7px;color:var(--navy)}.room p{font-size:12px;color:var(--muted);margin:0 0 13px}.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:#647477;margin-bottom:13px}
+.about{background:var(--sand)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.about img{width:100%;height:370px;object-fit:cover;border-radius:8px}.about p{color:#5b696b;font-size:14px}.ticks{display:flex;gap:20px;flex-wrap:wrap;margin:22px 0}.ticks span{font-size:12px;font-weight:bold;color:#496365}
+.amenities{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.amenity{padding:22px;border:1px solid #e8e9e5;border-radius:8px;text-align:center}.amenity span{font-size:28px}.amenity strong{display:block;margin:6px 0;font-size:14px}.amenity small{color:var(--muted)}
+.gallery{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:180px 180px;gap:12px}.gallery img{width:100%;height:100%;object-fit:cover;border-radius:7px}.gallery img:first-child{grid-row:span 2}
+.cta{background:linear-gradient(90deg,rgba(8,46,50,.88),rgba(8,46,50,.55)),url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1800&q=85') center/cover;color:white;text-align:center;padding:70px 20px}.cta h2{color:#fff}.cta p{max-width:560px;margin:12px auto 24px;color:#edf1ef}
+footer{background:#102f34;color:#dfe8e5;padding:36px 0 20px}.foot{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.foot p,.foot a{font-size:12px;color:#c4d1ce}.foot h3{font:24px Georgia,serif;margin:0}.copyright{border-top:1px solid #ffffff25;margin-top:25px;padding-top:16px;font-size:11px;color:#a9bfbb}
+.note{font-size:11px;color:#7b8585;text-align:center;padding:12px;background:#faf8f4}
+.mobile-menu{display:none}
+@media(max-width:850px){.links{gap:12px}.links a{font-size:12px}.rooms{grid-template-columns:repeat(2,1fr)}.booking{grid-template-columns:1fr 1fr}.booking .btn{width:100%}.features{grid-template-columns:repeat(3,1fr)}.about-grid{gap:25px}.amenities{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.nav{height:66px}.brand{font-size:24px}.links{display:none}.mobile-menu{display:inline-block}.nav .btn{padding:10px 12px;font-size:11px}.hero{min-height:490px}.hero-content{padding:55px 0}.hero p{font-size:14px}.booking{margin-top:0;border-radius:0;width:100%;grid-template-columns:1fr 1fr;padding:16px}.booking .btn{grid-column:span 2}.features{grid-template-columns:repeat(2,1fr);padding:24px 0}.feature:nth-child(2n){border-right:0}.section{padding:42px 0}.section-head{display:block}.section-head p{margin-top:12px}.rooms{grid-template-columns:1fr}.room img{height:210px}.about-grid{grid-template-columns:1fr}.about img{height:260px}.amenities{grid-template-columns:1fr 1fr;gap:10px}.amenity{padding:16px 8px}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:150px 150px 150px}.gallery img:first-child{grid-row:auto;grid-column:span 2}.gallery img{min-height:0}.foot{display:block}.foot>div{margin-bottom:20px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><span class="palm">🌴</span><span>LUDU<small>GUEST HOUSE</small></span></a>
+<nav class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#rooms">Rooms</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#contact">Contact</a></nav>
+<a class="btn" href="#booking">Book Your Stay</a>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap"><div class="hero-content">
+<div class="eyebrow">A perfect stay in Goa</div><h1>LUDU<br>Guest House</h1><div class="script">Stay. Relax. Explore.</div>
+<p>Discover your Goa getaway with comfortable stays, coastal vibes, and warm hospitality. Your beach escape begins here.</p>
+<a class="btn" href="#booking">Explore Your Stay&nbsp; →</a>
+</div></div></section>
+<form class="booking wrap" id="booking">
+<div class="field"><label for="checkin">CHECK IN</label><input type="date" id="checkin" required></div>
+<div class="field"><label for="checkout">CHECK OUT</label><input type="date" id="checkout" required></div>
+<div class="field"><label for="guests">GUESTS</label><select id="guests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option></select></div>
+<button class="btn" type="submit">Check Availability ↗</button>
+</form>
+<div class="wrap features">
+<div class="feature"><span>🏖️</span><strong>Beach Vibes</strong><small>Relax by the coast</small></div>
+<div class="feature"><span>🛏️</span><strong>Comfortable Rooms</strong><small>Stay your way</small></div>
+<div class="feature"><span>🍽️</span><strong>Local Flavours</strong><small>Taste Goa</small></div>
+<div class="feature"><span>📶</span><strong>Free Wi-Fi</strong><small>Stay connected</small></div>
+<div class="feature"><span>🚗</span><strong>Parking</strong><small>Easy arrival</small></div>
+</div>
+<section class="section wrap" id="rooms"><div class="section-head"><div><div class="kicker">Find your room</div><h2>Comfortable Stays for<br>Every Traveller</h2></div><p>Choose from room options designed for rest, comfort, and memorable moments in Goa.</p></div>
+<div class="rooms">
+<article class="room"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=700&q=80" alt="Sample deluxe guest room"><div class="room-body"><h3>Deluxe Room</h3><p>A welcoming space to unwind after a day exploring Goa.</p><div class="meta"><span>👤 2 Guests</span><span>❄️ AC option</span><span>📶 Wi-Fi</span></div><a class="btn btn-outline" href="#booking">Enquire Now →</a></div></article>
+<article class="room"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=700&q=80" alt="Sample superior room"><div class="room-body"><h3>Superior Room</h3><p>Extra space and a calm, coastal-inspired atmosphere.</p><div class="meta"><span>👤 3 Guests</span><span>❄️ AC option</span><span>📶 Wi-Fi</span></div><a class="btn btn-outline" href="#booking">Enquire Now →</a></div></article>
+<article class="room"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=700&q=80" alt="Sample room with balcony"><div class="room-body"><h3>Balcony Room</h3><p>A bright stay for guests who love fresh air and views.</p><div class="meta"><span>👤 2 Guests</span><span>🌅 Balcony</span><span>📶 Wi-Fi</span></div><a class="btn btn-outline" href="#booking">Enquire Now →</a></div></article>
+<article class="room"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="Sample family room"><div class="room-body"><h3>Family Room</h3><p>A comfortable option for families and small groups.</p><div class="meta"><span>👤 4 Guests</span><span>🧳 Spacious</span><span>📶 Wi-Fi</span></div><a class="btn btn-outline" href="#booking">Enquire Now →</a></div></article>
+</div></section>
+<section class="section about" id="about"><div class="wrap about-grid"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85" alt="Goa coastline inspiration"><div><div class="kicker">Welcome to LUDU</div><h2>Your Home Away<br>from Home in Goa</h2><p>Set the pace for your Goa escape. Whether you're here for beach days, local food, or a relaxing break, LUDU Guest House is designed to make your stay easy and memorable.</p><p>This demo uses sample copy and images. The final website can be updated with the property's real photographs, room types, amenities, and verified details.</p><div class="ticks"><span>✦ Thoughtful Comfort</span><span>♡ Warm Hospitality</span><span>✧ Goa Experiences</span></div><a class="btn" href="#contact">Know More About Us →</a></div></div></section>
+<section class="section wrap" id="amenities"><div class="section-head"><div><div class="kicker">Made for your comfort</div><h2>Guest House Amenities</h2></div><p>Showcase the facilities guests care about most. Final amenities will be confirmed by the owner.</p></div><div class="amenities">
+<div class="amenity"><span>📶</span><strong>Wi-Fi</strong><small>Stay connected</small></div><div class="amenity"><span>❄️</span><strong>Air Conditioning</strong><small>Cool, restful rooms</small></div><div class="amenity"><span>🧹</span><strong>Housekeeping</strong><small>Fresh and comfortable</small></div><div class="amenity"><span>🅿️</span><strong>Parking</strong><small>Convenient arrival</small></div>
+</div></section>
+<section class="section wrap" id="gallery"><div class="section-head"><div><div class="kicker">A glimpse of the getaway</div><h2>Explore the Gallery</h2></div><p>Replace these sample images with real photos of LUDU Guest House and its rooms.</p></div><div class="gallery">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Ocean waves"><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=700&q=80" alt="Resort pool"><img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=700&q=80" alt="Resort outdoors"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=700&q=80" alt="Guest room"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=700&q=80" alt="Beach chairs">
+</div></section>
+<section class="cta" id="location"><div class="kicker">Your Goa escape awaits</div><h2>Ready for a Relaxing Stay?</h2><p>Contact us to enquire about room availability, rates, and your preferred dates.</p><a class="btn" href="#booking">Enquire About Your Stay →</a></section>
+</main>
+<footer id="contact"><div class="wrap foot"><div><h3>🌴 LUDU Guest House</h3><p>Stay. Relax. Explore.</p></div><div><strong>Explore</strong><p><a href="#rooms">Rooms</a> · <a href="#amenities">Amenities</a> · <a href="#gallery">Gallery</a></p></div><div><strong>Contact & Location</strong><p>Goa, India · Contact details to be added</p><p>Phone / WhatsApp: To be confirmed</p></div></div><div class="wrap copyright">© <span id="year"></span> LUDU Guest House · Demo concept for review only.</div></footer>
+<div class="note">DEMO ONLY: Room names, amenities, photos, rates, location and contact details are placeholders. Booking form is a sample enquiry flow and is not connected to a live reservation system.</div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const today = new Date(); const min = new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+const ci=document.getElementById('checkin'), co=document.getElementById('checkout'); ci.min=min; co.min=min;
+ci.addEventListener('change',()=>{co.min=ci.value;if(co.value && co.value<=ci.value)co.value='';});
+document.getElementById('booking').addEventListener('submit',e=>{e.preventDefault();if(!ci.value||!co.value||co.value<=ci.value){alert('Please select a valid check-in and check-out date.');return;}alert('Thank you for your interest in LUDU Guest House! This is a demo form. Please contact the owner to confirm availability and rates.');});
+</script>
+</body></html>
