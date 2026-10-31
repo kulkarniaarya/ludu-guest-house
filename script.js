@@ -1,10 +1,5 @@
+// MOBILE NAVIGATION
 
-// Footer year
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-
-// Mobile navigation
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 
@@ -15,6 +10,8 @@ menuToggle.addEventListener("click", () => {
   menuToggle.textContent = isOpen ? "×" : "☰";
 });
 
+// CLOSE MENU AFTER CLICKING A LINK
+
 mainNav.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     mainNav.classList.remove("open");
@@ -23,72 +20,86 @@ mainNav.querySelectorAll("a").forEach(link => {
   });
 });
 
+// AUTOMATIC COPYRIGHT YEAR
 
-// Booking date validation
-const checkin = document.getElementById("checkin");
-const checkout = document.getElementById("checkout");
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// BOOKING DATE VALIDATION
+
+const checkIn = document.getElementById("checkIn");
+const checkOut = document.getElementById("checkOut");
 
 const today = new Date();
 
 const localToday = new Date(
   today.getTime() - today.getTimezoneOffset() * 60000
-).toISOString().slice(0, 10);
+).toISOString().split("T")[0];
 
-checkin.min = localToday;
-checkout.min = localToday;
+checkIn.min = localToday;
+checkOut.min = localToday;
 
-checkin.addEventListener("change", () => {
-  checkout.min = checkin.value || localToday;
+checkIn.addEventListener("change", () => {
+  checkOut.min = checkIn.value || localToday;
 
-  if (checkout.value && checkout.value <= checkin.value) {
-    checkout.value = "";
+  if (checkOut.value && checkOut.value <= checkIn.value) {
+    checkOut.value = "";
   }
 });
 
+// WHATSAPP BOOKING ENQUIRY
 
-// WhatsApp booking request
 document.getElementById("bookingForm").addEventListener("submit", event => {
+
   event.preventDefault();
 
   const name = document.getElementById("guestName").value.trim();
   const phone = document.getElementById("guestPhone").value.trim();
+
+  const arrival = checkIn.value;
+  const departure = checkOut.value;
+
   const guests = document.getElementById("guests").value;
-  const rooms = document.getElementById("rooms").value;
+  const rooms = document.getElementById("roomsCount").value;
 
-  if (!checkin.value || !checkout.value || checkout.value <= checkin.value) {
-    alert("Please select valid check-in and check-out dates.");
+  if (!name || !phone || !arrival || !departure) {
+    alert("Please complete all booking enquiry details.");
     return;
   }
 
-  if (!name || !phone) {
-    alert("Please enter your name and contact number.");
+  if (departure <= arrival) {
+    alert("Check-out date must be after check-in date.");
     return;
   }
 
-  const start = new Date(`${checkin.value}T00:00:00`);
-  const end = new Date(`${checkout.value}T00:00:00`);
+  const nights = Math.round(
+    (new Date(departure) - new Date(arrival)) / 86400000
+  );
 
-  const nights = Math.round((end - start) / 86400000);
-
-  const estimated = nights * Number(rooms) * 1000;
+  const estimate = nights * Number(rooms) * 1000;
 
   const message = [
-    "Hello LUDU Guest House! I would like to request a booking.",
+    "Hello LUDU Guest House, I would like to enquire about a booking.",
     "",
     `Name: ${name}`,
-    `Contact: ${phone}`,
-    `Check-in: ${checkin.value} (10:00 AM)`,
-    `Check-out: ${checkout.value} (11:00 AM)`,
+    `Phone: ${phone}`,
+    `Check-in: ${arrival}`,
+    `Check-out: ${departure}`,
     `Guests: ${guests}`,
-    `Rooms requested: ${rooms}`,
+    `Rooms: ${rooms}`,
     `Nights: ${nights}`,
-    `Estimated room total: ₹${estimated.toLocaleString("en-IN")}`,
+    `Estimated room amount: ₹${estimate.toLocaleString("en-IN")}`,
     "",
-    "Please confirm availability and booking details. Thank you."
+    "Please confirm availability. Thank you."
   ].join("\n");
 
   const whatsappUrl =
     `https://wa.me/918328802305?text=${encodeURIComponent(message)}`;
 
-  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  window.open(
+    whatsappUrl,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
 });
